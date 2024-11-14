@@ -3,6 +3,8 @@ package programa;
 import programa.controller.Controller;
 import programa.model.Manga;
 import programa.model.MangaConcreto;
+
+import java.io.IOException;
 import java.util.Scanner;
 import programa.util.Cores;
 
@@ -106,17 +108,17 @@ public class Menu {
 				manga.listarCarrinho();
 				break;
 			case 6:
-			    System.out.println("Adicionar ao Carrinho:");
-			    System.out.println("Digite o número do Mangá que você deseja adicionar ao carrinho: ");
-			    int numeroAdicionarCarrinho = scanner.nextInt();
-			    Manga mangaEncontrada = manga.procurarPeloNumero(numeroAdicionarCarrinho); // Captura o mangá encontrado
-			    if (mangaEncontrada != null) {
-			        manga.adicionarCarrinho(mangaEncontrada); // Adiciona o mangá ao carrinho
-			        System.out.println("Mangá adicionado ao carrinho!");
-			    } else {
-			        System.out.println("Erro: Mangá não encontrado.");
-			    }
-			    break;
+				System.out.println("Adicionar ao Carrinho:");
+				System.out.println("Digite o número do Mangá que você deseja adicionar ao carrinho: ");
+				int numeroAdicionarCarrinho = scanner.nextInt();
+				Manga mangaEncontrada = manga.procurarPeloNumero(numeroAdicionarCarrinho); // Captura o mangá encontrado
+				if (mangaEncontrada != null) {
+					manga.adicionarCarrinho(mangaEncontrada); // Adiciona o mangá ao carrinho
+					System.out.println("Mangá adicionado ao carrinho!");
+				} else {
+					System.out.println("Erro: Mangá não encontrado.");
+				}
+				break;
 			case 7:
 				System.out.println("Remover do Carrinho:");
 				System.out.println("Digite o número do Mangá que você deseja remover do carrinho: ");
@@ -137,6 +139,17 @@ public class Menu {
 	}
 
 	private static void keyPress() {
+
+		try {
+
+			System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para Continuar...");
+			System.in.read();
+
+		} catch (IOException e) {
+
+			System.out.println("Você pressionou uma tecla diferente de enter!");
+
+		}
 	}
 
 	public static void sobre() {
@@ -149,4 +162,5 @@ public class Menu {
 		System.out.println("                                                     ");
 		System.out.println("*****************************************************");
 	}
+
 }
