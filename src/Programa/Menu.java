@@ -111,9 +111,9 @@ public class Menu {
 				System.out.println("Adicionar ao Carrinho:");
 				System.out.println("Digite o número do Mangá que você deseja adicionar ao carrinho: ");
 				int numeroAdicionarCarrinho = scanner.nextInt();
-				Manga mangaEncontrada = manga.procurarPeloNumero(numeroAdicionarCarrinho); // Captura o mangá encontrado
+				Manga mangaEncontrada = manga.procurarPeloNumero(numeroAdicionarCarrinho);
 				if (mangaEncontrada != null) {
-					manga.adicionarCarrinho(mangaEncontrada); // Adiciona o mangá ao carrinho
+					manga.adicionarCarrinho(mangaEncontrada);
 					System.out.println("Mangá adicionado ao carrinho!");
 				} else {
 					System.out.println("Erro: Mangá não encontrado.");
