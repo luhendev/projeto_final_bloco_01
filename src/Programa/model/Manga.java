@@ -5,6 +5,7 @@ public abstract class Manga {
 	private String nome;
 	private String autor;
 	private float preco;
+	private int numero;
 
 	public Manga(String nome, String autor, float preco) {
 		this.nome = nome;
@@ -18,6 +19,14 @@ public abstract class Manga {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public int getNumero() {
+		return numero;
+	}
+	
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
 
 	public String getAutor() {
@@ -37,8 +46,6 @@ public abstract class Manga {
 	}
 
 	public void visualizar() {
-		System.out.println("\nNome do Mangá: " + this.nome);
-		System.out.println("Autor: " + this.autor);
-		System.out.println("Preço: R$ " + this.preco);
-	}
+        System.out.println("Número: " + numero + " | Nome: " + nome + " | Autor: " + autor + " | Preço: " + preco);
+    }
 }
